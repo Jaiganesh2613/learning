@@ -7,10 +7,13 @@ btn.addEventListener('click',function(){
     let hexcolor = '#'
     for(let i=1;i<=6;i++){
         hexcolor += randomHexValue()
-    }
+    }       
    wrap.style.backgroundColor = hexcolor
    colortext.innerHTML = hexcolor
 })
+
+
+
 
 function randomHexValue(){
        randomIndex = Math.floor(Math.random()*16)

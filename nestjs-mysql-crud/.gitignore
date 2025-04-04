@@ -1,0 +1,9 @@
+node_modules
+logs
+.DS_Store
+dist
+dist-ssr
+*.local
+.eslintcache
+yarn.lock
+package-lock.json

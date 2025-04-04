@@ -28,7 +28,21 @@ let AuthService = class AuthService {
         this.jwtService = jwtService;
     }
     async register(registerDto) {
-        const user = this.userRepository.create(registerDto);
+        const { email, gender } = registerDto;
+        const existingUser = await this.userRepository.findOne({
+            where: { email },
+        });
+        if (existingUser) {
+            throw new common_1.ConflictException('Email already registered');
+        }
+        if (!['Male', 'Female', 'M', 'F'].includes(gender)) {
+            throw new common_1.ConflictException(`Invalid gender: ${gender}`);
+        }
+        const normalizedGender = gender === 'M' ? 'Male' : gender === 'F' ? 'Female' : gender;
+        const user = this.userRepository.create({
+            ...registerDto,
+            gender: normalizedGender,
+        });
         await this.userRepository.save(user);
         return { message: 'User registered successfully' };
     }

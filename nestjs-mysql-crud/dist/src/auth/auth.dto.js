@@ -10,6 +10,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.LoginDto = exports.RegisterDto = void 0;
+const swagger_1 = require("@nestjs/swagger");
 const class_validator_1 = require("class-validator");
 class RegisterDto {
     name;
@@ -21,26 +22,41 @@ class RegisterDto {
 }
 exports.RegisterDto = RegisterDto;
 __decorate([
+    (0, swagger_1.ApiProperty)({ example: 'John Doe', description: 'Full name of the user' }),
     (0, class_validator_1.IsNotEmpty)(),
     __metadata("design:type", String)
 ], RegisterDto.prototype, "name", void 0);
 __decorate([
+    (0, swagger_1.ApiProperty)({ example: 25, description: 'Age of the user' }),
     (0, class_validator_1.IsNotEmpty)(),
     __metadata("design:type", Number)
 ], RegisterDto.prototype, "age", void 0);
 __decorate([
+    (0, swagger_1.ApiProperty)({ example: 'Male', description: 'Gender of the user' }),
     (0, class_validator_1.IsNotEmpty)(),
     __metadata("design:type", String)
 ], RegisterDto.prototype, "gender", void 0);
 __decorate([
+    (0, swagger_1.ApiProperty)({
+        example: '9876543210',
+        description: 'Phone number of the user',
+    }),
     (0, class_validator_1.IsNotEmpty)(),
     __metadata("design:type", String)
 ], RegisterDto.prototype, "phn", void 0);
 __decorate([
+    (0, swagger_1.ApiProperty)({
+        example: 'user@example.com',
+        description: 'Email of the user',
+    }),
     (0, class_validator_1.IsEmail)(),
     __metadata("design:type", String)
 ], RegisterDto.prototype, "email", void 0);
 __decorate([
+    (0, swagger_1.ApiProperty)({
+        example: 'password123',
+        description: 'Password (min 6 characters)',
+    }),
     (0, class_validator_1.IsNotEmpty)(),
     (0, class_validator_1.MinLength)(6),
     __metadata("design:type", String)
@@ -51,10 +67,18 @@ class LoginDto {
 }
 exports.LoginDto = LoginDto;
 __decorate([
+    (0, swagger_1.ApiProperty)({
+        example: 'user@example.com',
+        description: 'Email of the user',
+    }),
     (0, class_validator_1.IsEmail)(),
     __metadata("design:type", String)
 ], LoginDto.prototype, "email", void 0);
 __decorate([
+    (0, swagger_1.ApiProperty)({
+        example: 'password123',
+        description: 'Password (min 6 characters)',
+    }),
     (0, class_validator_1.IsNotEmpty)(),
     (0, class_validator_1.MinLength)(6),
     __metadata("design:type", String)

@@ -41,6 +41,14 @@ let UserService = class UserService {
             const salt = await bcrypt.genSalt(10);
             updateData.password = await bcrypt.hash(updateData.password, salt);
         }
+        if (updateData.gender) {
+            updateData.gender =
+                updateData.gender === 'M'
+                    ? 'Male'
+                    : updateData.gender === 'F'
+                        ? 'Female'
+                        : updateData.gender;
+        }
         await this.userRepository.update(id, updateData);
         return this.findById(id);
     }

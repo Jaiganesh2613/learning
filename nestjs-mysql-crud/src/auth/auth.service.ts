@@ -1,4 +1,8 @@
-import { Injectable, UnauthorizedException } from '@nestjs/common';
+import {
+  ConflictException,
+  Injectable,
+  UnauthorizedException,
+} from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { User } from '../user/user.entity';
@@ -15,7 +19,23 @@ export class AuthService {
   ) {}
 
   async register(registerDto: RegisterDto): Promise<{ message: string }> {
-    const user = this.userRepository.create(registerDto);
+    const { email, gender } = registerDto;
+
+    const existingUser = await this.userRepository.findOne({
+      where: { email },
+    });
+    if (existingUser) {
+      throw new ConflictException('Email already registered');
+    }
+    if (!['Male', 'Female', 'M', 'F'].includes(gender)) {
+      throw new ConflictException(`Invalid gender: ${gender}`);
+    }
+    const normalizedGender =
+      gender === 'M' ? 'Male' : gender === 'F' ? 'Female' : gender;
+    const user = this.userRepository.create({
+      ...registerDto,
+      gender: normalizedGender,
+    });
     await this.userRepository.save(user);
     return { message: 'User registered successfully' };
   }

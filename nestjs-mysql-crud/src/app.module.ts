@@ -14,6 +14,7 @@ import { AuthModule } from './auth/auth.module';
       database: 'nest_crud',
       autoLoadEntities: true,
       synchronize: true,
+      logging: true,
     }),
     UserModule,
     AuthModule,

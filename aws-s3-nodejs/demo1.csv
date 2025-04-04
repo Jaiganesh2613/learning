@@ -1,0 +1,6 @@
+ID,Name,Age,Gender,Email,Phone,Country,City,Occupation,Salary,Company,Department,JoiningDate,Status,Comments
+1,John Doe,30,M,john@example.com,123-456-7890,USA,New York,Engineer,70000,TechCorp,Development,2022-03-01,Active,No comments
+2,Jane Smith,28,F,jane@example.com,234-567-8901,UK,London,Analyst,65000,DataInc,Analytics,2021-07-15,Active,Excellent performance
+3,Michael Johnson,35,M,michael@example.com,345-678-9012,Canada,Toronto,Manager,80000,BizGroup,Management,2020-01-20,Inactive,Left company
+4,Emily Davis,40,F,emily@example.com,456-789-0123,Australia,Sydney,Consultant,75000,ConsultancyHub,Consulting,2019-05-10,Active,Key team member
+5,Chris Brown,45,M,chris@example.com,567-890-1234,Germany,Berlin,Director,90000,GlobalTech,Strategy,2018-11-30,Active,Great leadership

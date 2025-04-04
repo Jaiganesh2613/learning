@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Follow/Unfollow Buttons</title>
+    <style>
+        .note {
+            color: red;
+            font-size: 12px;
+        }
+
+        .hide {
+            display: none;
+        }
+
+        .disabled {
+            pointer-events: none;
+            opacity: 0.5;
+        }
+    </style>
+</head>
+<body>
+    <div id="follow-group-note" class="note hide">Please try some other time.</div>
+
+    <a href="#" class="btn-follow" id="followgroup" title="Follow">Follow</a>
+    <a href="#" class="btn-follow" id="unfollow" title="Unfollow">Unfollow</a>
+
+    <script>
+        function followGroup(jsGroupId, followType) {
+            var isLimitReached = checkLimitReached(); // You need to implement this function
+
+            if (!isLimitReached) {
+                console.log("Following group...");
+            } else {
+                document.getElementById('followgroup').classList.add('disabled');
+                document.getElementById('follow-group-note').classList.remove('hide');
+            }
+        }
+
+        function unFollowGroup() {
+            var isLimitReached = checkLimitReached(); // You need to implement this function
+
+            if (!isLimitReached) {
+                console.log("Unfollowing group...");
+            } else {
+                document.getElementById('unfollow').classList.add('disabled');
+                document.getElementById('follow-group-note').classList.remove('hide');
+            }
+        }
+
+        // Function to check if the user has reached the limit
+        function checkLimitReached() {
+            // For testing purposes, returning true after 3 attempts
+            return attempts >= 3;
+        }
+
+        var attempts = 0;
+
+        document.getElementById('followgroup').addEventListener('click', function() {
+            attempts++;
+            followGroup('group_id', 'follow');
+        });
+
+        document.getElementById('unfollow').addEventListener('click', function() {
+            attempts++;
+            unFollowGroup();
+        });
+    </script>
+</body>
+</html>

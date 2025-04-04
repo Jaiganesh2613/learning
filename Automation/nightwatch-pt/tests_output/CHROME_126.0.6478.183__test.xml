@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuites errors="1"
+            failures="1"
+            tests="3">
+
+  <testsuite name="test"
+    errors="1" failures="1" hostname="" id="" package="test" skipped="0"
+    tests="3" time="458.4" timestamp="">
+  
+    <testcase name="Fetch Dynamic IDs and Data Test" classname="test" time="12.33" assertions="3">
+
+    
+
+    
+
+    
+    </testcase>
+  
+    <testcase name="Fetch and assert API data" classname="test" time="0.2010" assertions="0">
+    </testcase>
+  
+    <testcase name="Click on Random Member Links" classname="test" time="216.7" assertions="104">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+      <failure message="Error while running &#34;perform&#34; command: [TypeError] Error while running &#34;url&#34; command: [TypeError] Cannot read properties of null (reading &#39;includes&#39;)">TypeError: Cannot read properties of null (reading &#39;includes&#39;)
+    at NightwatchAPI.&lt;anonymous&gt; (D:\nightwatch-pt\test\test.js:397:60)</failure>
+
+    
+    <error message="Error while running &#34;perform&#34; command: [TypeError] Error while running &#34;url&#34; command: [TypeError] Cannot read properties of null (reading &#39;includes&#39;)" type="error"><![CDATA[
+    TypeError: Cannot read properties of null (reading &#39;includes&#39;)
+    at NightwatchAPI.&lt;anonymous&gt; (D:\nightwatch-pt\test\test.js:397:60)
+    at Object.apply (D:\nightwatch-pt\node_modules\nightwatch\lib\api\_loaders\_base-loader.js:411:29)
+    at D:\nightwatch-pt\node_modules\nightwatch\lib\api\protocol\url.js:65:23
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    ]]></error>
+    
+    </testcase>
+  
+
+  
+    <system-err>
+       ✖ TypeError
+   Cannot read properties of null (reading &#39;includes&#39;)
+
+    Error location:
+    D:\nightwatch-pt\test\test.js:397
+    –––––––––––––––––––––––––––––––
+     395 |                                    this.url(function(urlResult) {
+     396 |                                        console.log(&#39;Current URL:&#39;, urlResult.value);
+     397 |                                        if (urlResult.value.includes(&#39;AdultWarning&#39;)) { 
+     398 |                                            this
+     399 |                                                .waitForElementVisible(&#39;#adultwarn_submit&#39;, 5000)
+    –––––––––––––––––––––––––––––––
+
+    Stack Trace :
+    at NightwatchAPI.&lt;anonymous&gt; (D:\nightwatch-pt\test\test.js:397:60)
+    at Object.apply (D:\nightwatch-pt\node_modules\nightwatch\lib\api\_loaders\_base-loader.js:411:29)
+    at D:\nightwatch-pt\node_modules\nightwatch\lib\api\protocol\url.js:65:23
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+
+    </system-err>
+  
+
+    
+
+  
+  </testsuite>
+</testsuites>

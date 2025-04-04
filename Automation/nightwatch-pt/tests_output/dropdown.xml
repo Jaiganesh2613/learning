@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuites errors="1"
+            failures="0"
+            tests="0">
+
+  <testsuite name="dropdown"
+    errors="1" failures="0" hostname="" id="" package="dropdown" skipped="1"
+    tests="0" time="0.002000" timestamp="">
+  
+
+  
+    <system-err>
+       An error occurred while creating a new ChromeDriver session: [Error] spawn node_modules/.bin/chromedriver ENOENT
+  Verify if ChromeDriver is configured correctly; using:
+  {
+     start_process: true,
+     server_path: &#39;node_modules/.bin/chromedriver&#39;,
+     port: 9515,
+     host: &#39;localhost&#39;,
+     ssl: false,
+     default_path_prefix: &#39;&#39;,
+     proxy: undefined,
+     cli_args: [ &#39;--verbose&#39; ]
+  }
+
+ 
+  Set webdriver.log_path in your Nightwatch config to retrieve more logs from ChromeDriver.
+    </system-err>
+  
+
+    
+    <error message="An error occurred while creating a new ChromeDriver session: [Error] spawn node_modules/.bin/chromedriver ENOENT"><![CDATA[
+      Error: An error occurred while creating a new ChromeDriver session: [Error] spawn node_modules/.bin/chromedriver ENOENT
+    at D:\Projects\Paltalk\WEBCG\paltalk-automation\nightwatch-pt\node_modules\selenium-webdriver\remote\index.js:256:70
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+      ]]></error>  
+
+  
+    
+    <testcase
+      name="Select Gender from Dropdown" classname="dropdown">
+      <skipped />
+    </testcase>
+    
+  
+  </testsuite>
+</testsuites>

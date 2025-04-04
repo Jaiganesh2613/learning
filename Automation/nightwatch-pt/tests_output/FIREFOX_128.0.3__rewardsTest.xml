@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuites errors="0"
+            failures="1"
+            tests="1">
+
+  <testsuite name="rewardsTest"
+    errors="0" failures="1" hostname="" id="" package="rewardsTest" skipped="0"
+    tests="1" time="0.1410" timestamp="">
+  
+    <testcase name="rewards page check" classname="rewardsTest" time="0.07100" assertions="1">  <failure message="browser.execute(...).pause(...).saveScreenshot(...).waitForElementVisible(...).scrollToElement is not a function">TypeError: browser.execute(...).pause(...).saveScreenshot(...).waitForElementVisible(...).scrollToElement is not a function
+    at rewards page check (D:\nightwatch-pt\test\rewardsTest.js:73:14)</failure>
+
+    
+    </testcase>
+  
+
+  
+
+    
+
+  
+  </testsuite>
+</testsuites>

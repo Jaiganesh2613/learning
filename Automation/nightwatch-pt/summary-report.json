@@ -1,0 +1,15 @@
+{
+  "passed": 7,
+  "failed": 0,
+  "errors": 0,
+  "skipped": 0,
+  "tests": [
+    {
+      "name": "Select Gender from Dropdown",
+      "passed": 7,
+      "failed": 0,
+      "errors": 0,
+      "skipped": 0
+    }
+  ]
+}

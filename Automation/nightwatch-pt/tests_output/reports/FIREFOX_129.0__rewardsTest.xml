@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuites errors="0"
+            failures="1"
+            tests="1">
+
+  <testsuite name="rewardsTest"
+    errors="0" failures="1" hostname="" id="" package="rewardsTest" skipped="0"
+    tests="1" time="37.26" timestamp="">
+  
+    <testcase name="rewards page check" classname="rewardsTest" time="18.62" assertions="3">
+
+    
+
+      <failure message="Timed out while waiting for element &lt;.form-group&gt; to be present for 2000 milliseconds. - expected &#34;visible&#34; but got: &#34;not found&#34; (2123ms)">    at rewards page check (D:\nightwatch-pt\test\rewardsTest.js:13:14)</failure>
+<system-out>[[ATTACHMENT|D:\nightwatch-pt\screenshots\rewardsTest\rewards-page-check_FAILED_Aug-14-2024-113101-GMT+0530.png]]</system-out>
+    
+    </testcase>
+  
+
+  
+
+    
+
+  
+  </testsuite>
+</testsuites>

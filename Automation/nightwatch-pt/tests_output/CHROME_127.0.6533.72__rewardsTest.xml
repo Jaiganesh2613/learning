@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuites errors="2"
+            failures="0"
+            tests="1">
+
+  <testsuite name="rewardsTest"
+    errors="2" failures="0" hostname="" id="" package="rewardsTest" skipped="0"
+    tests="1" time="61.59" timestamp="">
+  
+    <testcase name="rewards page check" classname="rewardsTest" time="30.79" assertions="5">
+
+    
+
+    
+
+    
+
+    
+
+    
+    <error message="Error while running &#34;navigateTo&#34; command: [UnknownCommandError] Unable to navigate to url https://commerce.paltalk.com/mpt/ControllerServlet?RequestId=MyPalTalk.PalPlusSubscription&amp;from=header&amp;ref=mptupgrade: Unable to find handler for (POST) /session/3199069fade2a93fb867f92eb76687fc/url" type="error"><![CDATA[
+    Error
+    at rewards page check (D:\nightwatch-pt\test\rewardsTest.js:78:21)
+    at Context.call (D:\nightwatch-pt\node_modules\nightwatch\lib\testsuite\context.js:515:35)
+    at TestCase.run (D:\nightwatch-pt\node_modules\nightwatch\lib\testsuite\testcase.js:58:31)
+    at Runnable.__runFn (D:\nightwatch-pt\node_modules\nightwatch\lib\testsuite\index.js:839:80)
+    at Runnable.run (D:\nightwatch-pt\node_modules\nightwatch\lib\testsuite\runnable.js:126:21)
+    at TestSuite.executeRunnable (D:\nightwatch-pt\node_modules\nightwatch\lib\testsuite\index.js:1000:49)
+    at TestSuite.handleRunnable (D:\nightwatch-pt\node_modules\nightwatch\lib\testsuite\index.js:1015:33)
+    at D:\nightwatch-pt\node_modules\nightwatch\lib\testsuite\index.js:839:21
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async DefaultRunner.runTestSuite (D:\nightwatch-pt\node_modules\nightwatch\lib\runner\test-runners\default.js:83:7)
+    ]]></error>
+    
+    </testcase>
+  
+
+  
+    <system-err>
+       UnknownCommandError
+   Unable to navigate to url https://commerce.paltalk.com/mpt/ControllerServlet?RequestId=MyPalTalk.PalPlusSubscription&amp;from=header&amp;ref=mptupgrade: Unable to find handler for (POST) /session/3199069fade2a93fb867f92eb76687fc/url
+ UnknownCommandError
+   Error while running &#34;navigateTo&#34; command: [UnknownCommandError] Unable to navigate to url https://commerce.paltalk.com/mpt/ControllerServlet?RequestId=MyPalTalk.PalPlusSubscription&amp;from=header&amp;ref=mptupgrade: Unable to find handler for (POST) /session/3199069fade2a93fb867f92eb76687fc/url
+
+    Error location:
+    D:\nightwatch-pt\test\rewardsTest.js:78
+    ––––––––––––––––––––––––––––––––––––––
+     76 |             // .click(&#39;.pointsHistory_footer__UWr8N .btn.bluebtn&#39;)
+     77 |             // .pause(5000)
+     78 |             browser.navigateTo(&#39;https://commerce.paltalk.com/mpt/ControllerServlet?RequestId=MyPalTalk.PalPlusSubscription&amp;from=header&amp;ref=mptupgrade&#39;) 
+     79 |             .waitForElementVisible(&#39;body&#39;, 1000)
+     80 |             .click(&#39;#extremeSubscribe&#39;)
+    ––––––––––––––––––––––––––––––––––––––
+
+    </system-err>
+  
+
+    
+
+  
+  </testsuite>
+</testsuites>

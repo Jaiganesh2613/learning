@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dropdown Hover and Focus</title>
+    <style>
+        select {
+            width: 200px;
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+<div>
+    <select id="dropdown1">
+        <option value="option1">Option 1</option>
+        <option value="option2">Option 2</option>
+        <option value="option3">Option 3</option>
+    </select>
+</div>
+
+<div>
+    <select id="dropdown2">
+        <option value="option4">Option 4</option>
+        <option value="option5">Option 5</option>
+        <option value="option6">Option 6</option>
+    </select>
+</div>
+
+<div>
+    <select id="dropdown3">
+        <option value="option7">Option 7</option>
+        <option value="option8">Option 8</option>
+        <option value="option9">Option 9</option>
+    </select>
+</div>
+
+<button id="testButton">Test Dropdowns</button>
+
+<script>
+    document.getElementById('testButton').addEventListener('click', function() {
+        const dropdowns = ['dropdown1', 'dropdown2', 'dropdown3'];  // List of dropdowns
+
+        // Focus and open each dropdown one by one
+        dropdowns.forEach((id, index) => {
+            setTimeout(() => {
+                let dropdown = document.getElementById(id);
+                dropdown.focus();  // Focus the dropdown
+                dropdown.size = dropdown.options.length;  // Open the dropdown by increasing the size
+
+                // Simulate hovering over the dropdown
+                dropdown.addEventListener('mouseover', function() {
+                    console.log(`Hovered over ${id}, preventing selection.`);
+                    dropdown.size = 0;  // Close the dropdown when hovered to prevent selection
+                });
+
+                dropdown.addEventListener('mouseout', function() {
+                    console.log(`Mouseout of ${id}, restoring dropdown size.`);
+                    dropdown.size = dropdown.options.length;  // Restore dropdown size when mouse leaves
+                });
+
+            }, index * 1000);  // Delay focusing each dropdown by 1 second
+        });
+    });
+</script>
+</body>
+</html>

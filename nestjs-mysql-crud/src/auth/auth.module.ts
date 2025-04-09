@@ -9,6 +9,7 @@ import { Reflector } from '@nestjs/core';
 import { jwtConstants } from './constants';
 import { UserController } from '../user/user.controller';
 import { UserService } from '../user/user.service';
+import { CacheModule } from '@nestjs/cache-manager';
 
 @Module({
   imports: [
@@ -17,6 +18,7 @@ import { UserService } from '../user/user.service';
       secret: jwtConstants.secret,
       signOptions: { expiresIn: '300s' },
     }),
+    CacheModule.register(),
   ],
   controllers: [AuthController, UserController],
   providers: [AuthService, AuthGuard, Reflector, UserService],

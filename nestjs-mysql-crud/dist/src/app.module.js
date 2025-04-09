@@ -11,6 +11,7 @@ const common_1 = require("@nestjs/common");
 const typeorm_1 = require("@nestjs/typeorm");
 const user_module_1 = require("./user/user.module");
 const auth_module_1 = require("./auth/auth.module");
+const cache_manager_1 = require("@nestjs/cache-manager");
 let AppModule = class AppModule {
 };
 exports.AppModule = AppModule;
@@ -26,7 +27,9 @@ exports.AppModule = AppModule = __decorate([
                 database: 'nest_crud',
                 autoLoadEntities: true,
                 synchronize: true,
+                logging: true,
             }),
+            cache_manager_1.CacheModule.register(),
             user_module_1.UserModule,
             auth_module_1.AuthModule,
         ],

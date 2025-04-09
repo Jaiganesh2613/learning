@@ -6,5 +6,7 @@ export declare class User {
     phn: string;
     email: string;
     password: string;
+    created_at: Date;
+    updated_at: Date;
     hashPassword(): Promise<void>;
 }

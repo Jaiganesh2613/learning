@@ -18,6 +18,7 @@ const core_1 = require("@nestjs/core");
 const constants_1 = require("./constants");
 const user_controller_1 = require("../user/user.controller");
 const user_service_1 = require("../user/user.service");
+const cache_manager_1 = require("@nestjs/cache-manager");
 let AuthModule = class AuthModule {
 };
 exports.AuthModule = AuthModule;
@@ -27,8 +28,9 @@ exports.AuthModule = AuthModule = __decorate([
             typeorm_1.TypeOrmModule.forFeature([user_entity_1.User]),
             jwt_1.JwtModule.register({
                 secret: constants_1.jwtConstants.secret,
-                signOptions: { expiresIn: '120s' },
+                signOptions: { expiresIn: '300s' },
             }),
+            cache_manager_1.CacheModule.register(),
         ],
         controllers: [auth_controller_1.AuthController, user_controller_1.UserController],
         providers: [auth_service_1.AuthService, auth_guard_1.AuthGuard, core_1.Reflector, user_service_1.UserService],

@@ -15,9 +15,9 @@ async function bootstrap() {
       'This API handles user authentication, profile management, and role-based access.',
     )
     .setVersion('1.0.0')
-    .addServer('http://localhost:3004/', 'Local environment')
-    .addServer('https://staging.myapp.com/', 'Staging')
-    .addServer('https://api.myapp.com/', 'Production')
+    .addServer('http://localhost:3000/', 'Local environment')
+    // .addServer('https://staging.myapp.com/', 'Staging')
+    // .addServer('https://api.myapp.com/', 'Production')
     .addTag('Users')
     .addTag('Authentication')
     .addBearerAuth()
@@ -32,6 +32,6 @@ async function bootstrap() {
   );
   app.useGlobalFilters(new GlobalExceptionFilter());
 
-  await app.listen(process.env.PORT ?? 3004);
+  await app.listen(process.env.PORT ?? 3000);
 }
 bootstrap();

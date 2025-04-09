@@ -12,9 +12,7 @@ async function bootstrap() {
         .setTitle('User Management API')
         .setDescription('This API handles user authentication, profile management, and role-based access.')
         .setVersion('1.0.0')
-        .addServer('http://localhost:3004/', 'Local environment')
-        .addServer('https://staging.myapp.com/', 'Staging')
-        .addServer('https://api.myapp.com/', 'Production')
+        .addServer('http://localhost:3000/', 'Local environment')
         .addTag('Users')
         .addTag('Authentication')
         .addBearerAuth()
@@ -23,7 +21,7 @@ async function bootstrap() {
     swagger_1.SwaggerModule.setup('api-docs', app, document);
     app.useGlobalInterceptors(new logging_interceptor_1.LoggingInterceptor(), new transform_interceptor_1.TransformInterceptor());
     app.useGlobalFilters(new exception_interceptor_1.GlobalExceptionFilter());
-    await app.listen(process.env.PORT ?? 3004);
+    await app.listen(process.env.PORT ?? 3000);
 }
 bootstrap();
 //# sourceMappingURL=main.js.map

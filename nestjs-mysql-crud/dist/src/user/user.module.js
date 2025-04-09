@@ -11,6 +11,7 @@ const common_1 = require("@nestjs/common");
 const jwt_1 = require("@nestjs/jwt");
 const constants_1 = require("../auth/constants");
 const auth_guard_1 = require("../auth/auth.guard");
+const cache_manager_1 = require("@nestjs/cache-manager");
 let UserModule = class UserModule {
 };
 exports.UserModule = UserModule;
@@ -19,8 +20,9 @@ exports.UserModule = UserModule = __decorate([
         imports: [
             jwt_1.JwtModule.register({
                 secret: constants_1.jwtConstants.secret,
-                signOptions: { expiresIn: '120s' },
+                signOptions: { expiresIn: '300s' },
             }),
+            cache_manager_1.CacheModule.register(),
         ],
         providers: [auth_guard_1.AuthGuard],
         exports: [auth_guard_1.AuthGuard],

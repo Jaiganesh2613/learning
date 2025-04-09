@@ -17,27 +17,53 @@ const common_1 = require("@nestjs/common");
 const user_service_1 = require("./user.service");
 const auth_guard_1 = require("../auth/auth.guard");
 const swagger_1 = require("@nestjs/swagger");
+const cache_manager_1 = require("@nestjs/cache-manager");
 let UserController = class UserController {
     userService;
-    constructor(userService) {
+    cacheManager;
+    constructor(userService, cacheManager) {
         this.userService = userService;
+        this.cacheManager = cacheManager;
     }
     async findAll() {
-        return this.userService.findAll();
+        const cacheKey = 'allUsers';
+        const cachedUsers = await this.cacheManager.get(cacheKey);
+        if (cachedUsers) {
+            console.log(`Cache hit for key: ${cacheKey}`);
+            return cachedUsers;
+        }
+        const users = await this.userService.findAll();
+        await this.cacheManager.set(cacheKey, users, 300000);
+        return users;
     }
     async findById(id) {
-        return this.userService.findById(Number(id));
+        const cacheKey = `userID-${id}`;
+        const cachedUser = await this.cacheManager.get(cacheKey);
+        if (cachedUser) {
+            console.log(`Cache hit for key: ${cacheKey}`);
+            return cachedUser;
+        }
+        const user = await this.userService.findById(Number(id));
+        if (!user) {
+            throw new common_1.NotFoundException(`User with ID ${id} not found`);
+        }
+        await this.cacheManager.set(cacheKey, user, 300000);
+        return user;
     }
     async update(id, updateData, req) {
         if (!req.user) {
             throw new common_1.UnauthorizedException('User not found in request');
         }
+        await this.cacheManager.del(`userID-${id}`);
+        await this.cacheManager.del('allUsers');
         return this.userService.update(Number(id), updateData, req.user.id);
     }
     async delete(id, req) {
         if (!req.user) {
             throw new common_1.UnauthorizedException('User not found in request');
         }
+        await this.cacheManager.del(`userID-${id}`);
+        await this.cacheManager.del('allUsers');
         return this.userService.delete(Number(id), req.user.id);
     }
 };
@@ -105,6 +131,7 @@ exports.UserController = UserController = __decorate([
     (0, common_1.Controller)('users'),
     (0, swagger_1.ApiTags)('Users'),
     (0, swagger_1.ApiBearerAuth)(),
-    __metadata("design:paramtypes", [user_service_1.UserService])
+    __param(1, (0, common_1.Inject)(cache_manager_1.CACHE_MANAGER)),
+    __metadata("design:paramtypes", [user_service_1.UserService, Object])
 ], UserController);
 //# sourceMappingURL=user.controller.js.map
